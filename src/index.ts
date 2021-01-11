@@ -217,7 +217,7 @@ export class TypeScriptPlugin {
               outModulesPath
           )
       } else {
-          fs.mkdirSync(outModulesPath)
+          fs.mkdirpSync(outModulesPath)
       }
     } else {
       if (!fs.existsSync(outModulesPath)) {
