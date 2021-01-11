@@ -195,10 +195,14 @@ export class TypeScriptPlugin {
         fs.unlinkSync(outModulesPath)
       }
 
-      fs.copySync(
-        path.resolve('node_modules'),
-        path.resolve(path.join(BUILD_FOLDER, 'node_modules'))
-      )
+      if (fs.existsSync(path.resolve('node_modules'))) {
+          fs.copySync(
+              path.resolve('node_modules'),
+              outModulesPath
+          )
+      } else {
+          fs.mkdirSync(outModulesPath)
+      }
     } else {
       if (!fs.existsSync(outModulesPath)) {
         await this.linkOrCopy(path.resolve('node_modules'), outModulesPath, 'junction')
