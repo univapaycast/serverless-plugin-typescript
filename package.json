@@ -20,6 +20,9 @@
     "type": "git",
     "url": "git@github.com:univapaycast/serverless-plugin-typescript.git"
   },
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com"
+  },
   "keywords": [
     "serverless",
     "serverless plugin",
